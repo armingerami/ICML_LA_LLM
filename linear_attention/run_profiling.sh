@@ -12,6 +12,6 @@ source /you/venv/directory/bin/activate
 module load gcc
 module load cuda
 python setup.py install
-python test_fastmax.py
+python profiling.py
 
 # Note: for d = 64, linear attention will be faster than flash attention for roughly > 16k tokens
