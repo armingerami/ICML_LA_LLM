@@ -32,4 +32,8 @@ sbatch run_profiling.sh
 
 ## Recreate LLM Training
 We use [`LitGPT`](https://github.com/Lightning-AI/litgpt) for our implementation. We have modified the `model.py` file to enable using our linear attention, the `config.py` file to define our LLM, and `pretrain.py` to enable training the Wiki40B dataset.<br>
+To install `LitGPT`
+```
+pip install 'litgpt[all]'
+```
 To prepare the Wiki40B dataset
