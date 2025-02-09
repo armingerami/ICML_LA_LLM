@@ -36,4 +36,4 @@ To install `LitGPT`
 ```
 pip install 'litgpt[all]'
 ```
-To prepare the Wiki40B dataset
+To prepare the Wiki40B dataset download the english segment of [Wiki40b](https://huggingface.co/datasets/google/wiki40b), and put it in the `/wiki40b/en` folder. Note that the files in this folder should be `.parquet`. You should then run `parquet_to_jason.py` to reformat the files to `.jason`, which LitGPT uses. Make sure that the paths used in `parquet_to_jason.py` match your directory.
