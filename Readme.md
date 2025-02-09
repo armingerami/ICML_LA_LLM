@@ -36,4 +36,18 @@ To install `LitGPT`
 ```
 pip install 'litgpt[all]'
 ```
-To prepare the Wiki40B dataset download the english segment of [Wiki40b](https://huggingface.co/datasets/google/wiki40b), and put it in the `/wiki40b/en` folder. Note that the files in this folder should be `.parquet`. You should then run `parquet_to_jason.py` to reformat the files to `.jason`, which LitGPT uses. Make sure that the paths used in `parquet_to_jason.py` match your directory.
+To prepare the Wiki40B dataset download the english segment of [Wiki40b](https://huggingface.co/datasets/google/wiki40b), and put it in the `/wiki40b/en` folder. Note that the files in this folder should be `.parquet`. You should then run `parquet_to_jason.py` to reformat the files to `.jason`, which LitGPT uses. Make sure that the paths used in `parquet_to_jason.py` match your directory.<br>
+<br>
+To train the LLM using regular attention use the `train_llm_regular.sh`, and using linear attention use `train_llm_linear.sh`. The SLURM command would be
+```
+sbatch train_llm_regular.sh
+sbatch train_llm_linear.sh
+```
+The training should take about 5 days using linear attention.
+
+## Recreate LLM Benchmarks
+We use [EleutherAI's lm-eval](https://github.com/EleutherAI/lm-evaluation-harness) to perform the benchmarks. Install it using 
+```
+pip install 'lm_eval[all]'
+```
+To perform the benchmarks, run `eval_llm_regular.sh` and `eval_llm_linear.sh` to evaluate the trained LLM using regular and linear attention respectively. Note that you need to first train the LLMs in previous step.
