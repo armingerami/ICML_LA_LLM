@@ -24,7 +24,6 @@ class FASTMultiHeadAttention_Function(torch.autograd.Function):
     @staticmethod
     def forward(ctx, q,k,v, drop_noise, mask = False, dropout = 0.0, normalize = False, temperature = 1.0, a0 = 1.0, a1 = 1.0, a2 = 0.5,lim = 1.0, p=1):
         # print(q.get_device())
-        # print("cyka")
         if q.get_device() == -1: 
             ctx.save_for_backward(q,k,v,q)
             return q
